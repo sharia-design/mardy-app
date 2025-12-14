@@ -38,16 +38,15 @@
 		stroke-dashoffset: 0;
 	}
 
-	@media (hover: hover) {
-		svg:hover {
-			will-change: transform;
-			transform: scale(1.1);
-		}
+	svg:hover {
+		will-change: transform;
+		transform: scale(1.1);
+	}
 
-		svg:hover path {
-			fill: transparent;
-			stroke-dashoffset: 0;
-		}
+	svg:hover path {
+		fill: rgba(var(--black-rgb), .69);
+		backdrop-filter: blur(11px);
+		stroke-dashoffset: 0;
 	}
 
 	@media (max-width: 550px) {

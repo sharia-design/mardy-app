@@ -18,10 +18,10 @@
 		<h1 in:blur={{ amount: 11, duration: 1200, delay: 420 }}>რიგის მართვის სისტემა</h1>
 		<ul>
 			<li in:fly={{ y: 40, duration: 650, delay: 1111 }}>
-				<a href="mailto:email@mardy.com">email@mardy.com</a>
+				<a href="mailto:email@mardy.app">email@mardy.app</a>
 			</li>
 			<li in:fly={{ y: 40, duration: 650, delay: 1333 }}>
-				<a href="tel:+995500103010">+(995) 500 10 30 10</a>
+				<a href="tel:+995500113011">+(995) 500 11 30 11</a>
 			</li>
 		</ul>
 	{/if}
