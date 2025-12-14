@@ -4,12 +4,39 @@
 		box-sizing: border-box;
 	}
 
+	:root {
+		/* ----- Colors ------ */
+		--primary: #6AFF00;
+		--primary-rgb: 106, 255, 0;
+		--black: #11111D;
+		--black-rgb: 17, 17, 29;
+		/* ----- Colors ------ */
+
+		/* ----- Size ------ */
+		--grid-size-1: 5vw;
+		--grid-size-2: 25vw;
+		/* ----- Size ------ */
+	}
+
+	@media all and (min-width: 1200px) {
+		:root {
+			--grid-size-1: 3vw;
+			--grid-size-2: 15vw;
+		}
+	}
+
+
+	*::selection {
+		background: var(--primary);
+		color: var(--black);
+	}
+
 	ul {
 		list-style: none;
 	}
 
 	html {
-		background: #11111D;
+		background: var(--black);
 		/* BG */
 		--bgPattColor1: rgba(106, 255, 0, 0.11);
 		--bgPattColor2: rgba(106, 255, 0, 0.15);
@@ -19,7 +46,7 @@
 			linear-gradient(to bottom, var(--bgPattColor1) 1px, transparent 1px),
 			linear-gradient(to right, var(--bgPattColor2) 1px, transparent 1px),
 			linear-gradient(to bottom, var(--bgPattColor2) 1px, transparent 1px);
-		background-size: 40px 40px, 40px 40px, 200px 200px, 200px 200px;
+		background-size: var(--grid-size-1) var(--grid-size-1), var(--grid-size-1) var(--grid-size-1), var(--grid-size-2) var(--grid-size-2), var(--grid-size-2) var(--grid-size-2);
 		background-position: 0 0, 0 0, 0 0, 0 0;
 	}
 
@@ -30,5 +57,5 @@
 		font-style: normal;
 		font-variation-settings:
 			"GRAD"0;
-		color: #6AFF00;
+		color: var(--primary);
 	}

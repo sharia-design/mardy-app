@@ -41,6 +41,7 @@
 		font-size: 4.2vw;
 		font-weight: 900;
 	}
+
 	ul {
 		display: flex;
 		gap: 3vw;
@@ -49,21 +50,28 @@
 	a {
 		color: inherit;
 		display: inline-flex;
-		padding: 11px 22px;
+		align-items: center;
+		justify-content: center;
+		padding: 22px 29px;
 		text-decoration: none;
 		font-size: 1.1rem;
-		border: 1px solid #6aff00;
+		border: 1px solid var(--primary);
+		border-top-right-radius: 33px;
+		border-bottom-left-radius: 33px;
+		font-weight: 600;
 		transition: 0.5s ease;
 	}
 	a:hover {
 		transform: translateY(-5px);
-		background: #6aff00;
-		color: #11111d;
+		background: var(--primary);
+		color: var(--black);
+		border-top-right-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 	a:active {
 		transform: translateY(0);
-		opacity: 0.74;
-		border-radius: 11px;
+		color: var(--primary);
+		background: rgba(var(--primary-rgb), 0.29);
 	}
 	@media all and (max-width: 550px) {
 		h1 {
