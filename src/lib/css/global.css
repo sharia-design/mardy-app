@@ -3,12 +3,24 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
+
 	ul {
 		list-style: none;
 	}
 
 	html {
 		background: #11111D;
+		/* BG */
+		--bgPattColor1: rgba(106, 255, 0, 0.11);
+		--bgPattColor2: rgba(106, 255, 0, 0.15);
+		background-image: linear-gradient(to right,
+				var(--bgPattColor1) 1px,
+				transparent 1px),
+			linear-gradient(to bottom, var(--bgPattColor1) 1px, transparent 1px),
+			linear-gradient(to right, var(--bgPattColor2) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--bgPattColor2) 1px, transparent 1px);
+		background-size: 40px 40px, 40px 40px, 200px 200px, 200px 200px;
+		background-position: 0 0, 0 0, 0 0, 0 0;
 	}
 
 	body {
@@ -17,6 +29,6 @@
 		font-weight: 400;
 		font-style: normal;
 		font-variation-settings:
-			"GRAD" 0;
+			"GRAD"0;
 		color: #6AFF00;
 	}

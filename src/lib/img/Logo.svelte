@@ -13,13 +13,20 @@
 </svg>
 
 <style>
-    svg {
-        width: 28vw;
-        height: auto;
-    }
-    @media all and (max-width: 550px) {
-        svg {
-            width: 56vw;
-        }
-    }
+	svg {
+		width: 28vw;
+		height: auto;
+		transition: 0.5s ease-in-out;
+	}
+	path {
+		transition: 0.5s ease-in-out;
+	}
+	svg:hover {
+		transform: scale(1.1);
+	}
+	@media all and (max-width: 550px) {
+		svg {
+			width: 56vw;
+		}
+	}
 </style>
