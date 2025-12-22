@@ -1,0 +1,56 @@
+	/* --- CSS Variables --- */
+	#tv {
+	  --yellow: #ffe92d;
+	  --blue: #1a0d7c;
+	  --white-1: #ffffff;
+	  --white-2: #f8f8f8;
+	  --orange-1: #ffa800;
+	  --orange-2: #f17800;
+	  --orange-3: #cb451b;
+	  --black: #151515;
+	  --gray: #2e3033;
+
+	  /* Fonts & Reset */
+	  font-family: 'Google Sans', sans-serif;
+	  width: 100vw;
+	  height: 100vh;
+	  background-color: var(--black);
+	  overflow: hidden;
+	  box-sizing: border-box;
+	}
+
+	/* --- Loader --- */
+	.loader-container {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  height: 100vh;
+	  background: var(--blue);
+	  color: var(--white-1);
+	}
+
+	.spinner {
+	  width: 5vw;
+	  height: 5vw;
+	  border: 0.5vw solid var(--white-1);
+	  border-top: 0.5vw solid var(--yellow);
+	  border-radius: 50%;
+	  animation: spin 1s linear infinite;
+	  margin-bottom: 2vh;
+	}
+
+	@keyframes spin {
+	  0% {
+	    transform: rotate(0deg);
+	  }
+
+	  100% {
+	    transform: rotate(360deg);
+	  }
+	}
+
+	*::selection {
+	  background: var(--blue);
+	  color: var(--yellow);
+	}

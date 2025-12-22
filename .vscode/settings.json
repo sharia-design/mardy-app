@@ -1,0 +1,17 @@
+{
+  "workbench.colorCustomizations": {
+    // Top bar (title bar) when active
+    "titleBar.activeBackground": "#81b25e",       // Example: Dark blue
+    "titleBar.activeForeground": "#11111D",       // Text/icon color for contrast
+
+    // Top bar when inactive (not focused)
+    "titleBar.inactiveBackground": "#81b25e",   // Slightly transparent version
+    "titleBar.inactiveForeground": "#11111D",
+
+    // Bottom bar (status bar)
+    "statusBar.background": "#81b25e",            // Same color as title bar for consistency
+    "statusBar.foreground": "#11111D",
+    "statusBar.noFolderBackground": "#81b25e",    // When no folder is open
+
+  }
+}
