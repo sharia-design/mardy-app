@@ -102,36 +102,40 @@
 	}
 
 	// Split services
-	const servicesCol1 = [
-		{ id: 'D-050', place: '3' },
-		{ id: 'D-051', place: '5' },
-		{ id: 'D-052', place: '8' },
-		{ id: 'D-053', place: '12' },
+	const serviceActives = [
+		{ id: 'D-050', place: '11', flash: true },
+		{ id: 'D-051', place: '7', flash: true },
+		{ id: 'D-052', place: '14' },
+		{ id: 'D-053', place: '6' },
 		{ id: 'D-054', place: '15' },
-		{ id: 'D-055', place: '20' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' },
-		{ id: 'D-056', place: '25' }
+		{ id: 'D-055', place: '9' },
+		{ id: 'D-056', place: '12' },
+		{ id: 'D-057', place: '5' },
+		{ id: 'D-058', place: '10' },
+		{ id: 'D-056', place: '12' },
+		{ id: 'D-058', place: '10' },
+		{ id: 'D-056', place: '12' },
+		{ id: 'D-055', place: '9' }
 	];
 
-	const servicesCol2 = [
-		{ id: 'D-052', place: '6' },
-		{ id: 'D-053', place: '7' },
-		{ id: 'D-054', place: '8' },
-		{ id: 'D-055', place: '9' },
-		{ id: 'D-056', place: '10' },
-		{ id: 'D-057', place: '11' },
-		{ id: 'D-058', place: '12' }
+	const serviceWaitings = [
+		{ id: 'D-059', place: '8' },
+		{ id: 'D-060', place: '13' },
+		{ id: 'D-061', place: '6' },
+		{ id: 'D-062', place: '15' },
+		{ id: 'D-063', place: '9' },
+		{ id: 'D-064', place: '11' },
+		{ id: 'D-065', place: '7' },
+		{ id: 'D-066', place: '14' },
+		{ id: 'D-067', place: '5' },
+		{ id: 'D-068', place: '12' },
+		{ id: 'D-069', place: '10' },
+		{ id: 'D-070', place: '6' },
+		{ id: 'D-071', place: '15' },
+		{ id: 'D-072', place: '8' },
+		{ id: 'D-073', place: '13' },
+		{ id: 'D-074', place: '9' },
+		{ id: 'D-075', place: '11' }
 	];
 
 	const waitingList = ['D-213', 'D-213', 'D-213', 'D-213', 'D-213', 'D-213', 'D-213'];
@@ -204,7 +208,7 @@
 
 		<main>
 			<aside>
-				<div class="panel-header">რეგისტრატურა</div>
+				<div class="panel-header">რეგისტრატურა / Desk</div>
 
 				<div class="table-header">
 					<span>რიგის №</span>
@@ -246,12 +250,14 @@
 							<span>რიგის №</span>
 							<span>ოთახი / Room</span>
 						</div>
-						{#each servicesCol1 as item}
-							<div class="service-row">
-								<div class="ticket-box">{item.id}</div>
-								<div class="place-box-blue">{item.place}</div>
-							</div>
-						{/each}
+						<div class="services-active-list">
+							{#each serviceActives as item}
+								<div class="service-row" class:flash={item.flash}>
+									<div class="ticket-box">{item.id}</div>
+									<div class="place-box-blue">{item.place}</div>
+								</div>
+							{/each}
+						</div>
 					</div>
 
 					<div class="service-col waiting">
@@ -262,18 +268,20 @@
 							<span>რიგის №</span>
 							<span>ოთახი / Room</span>
 						</div>
-						{#each servicesCol2 as item}
-							<div class="service-row">
-								<div class="ticket-box">{item.id}</div>
-								<div class="place-box-blue">{item.place}</div>
-							</div>
-						{/each}
+						<div class="services-waiting-list">
+							{#each serviceWaitings as item}
+								<div class="service-row">
+									<div class="ticket-box">{item.id}</div>
+									<div class="place-box-blue">{item.place}</div>
+								</div>
+							{/each}
+						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
-		<footer>
+		<!-- <footer>
 			<div class="waiting-label">მომლოდინეები:</div>
 			<div class="waiting-list">
 				{#each waitingList as item}
@@ -283,7 +291,7 @@
 					</div>
 				{/each}
 			</div>
-		</footer>
+		</footer> -->
 	</div>
 </div>
 
@@ -469,21 +477,7 @@
 
 	/* Flash Animation: Active Desk item */
 	.list-item.active.flash > span {
-		animation: flashDesk 1s ease-out 10;
-	}
-
-	@keyframes flashDesk {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		20%,
-		30% {
-			opacity: 0.1;
-		}
-		40% {
-			opacity: 1;
-		}
+		animation: flashAnimation 1s ease-out 10;
 	}
 	/* Flash Animation: Active Desk item */
 
@@ -506,6 +500,8 @@
 		flex-direction: column;
 		width: calc(100% - 30vw);
 		background-color: var(--white-1);
+		height: 100%;
+		overflow: hidden;
 	}
 
 	.services-wrapper {
@@ -513,8 +509,8 @@
 		justify-content: space-between;
 		align-items: flex-start;
 		width: 100%;
+		min-height: 0;
 		flex-grow: 1;
-		height: 100%;
 	}
 
 	.service-col .table-header {
@@ -530,16 +526,55 @@
 
 	.service-col {
 		width: 100%;
+		height: 100%;
+		flex: 1;
 		display: flex;
 		flex-direction: column;
-		overflow-y: auto
-	}
-	.service-col.active {
-		border-left: 2px solid var(--yellow) !important;
-		background-color: var(--blue);
+		min-height: 0;
 	}
 	.service-col:first-child {
 		border-right: 2px solid var(--blue);
+	}
+
+	.services-active-list {
+		border-left: 2px solid var(--yellow);
+		background-color: var(--blue);
+		height: 100%;
+		overflow-y: auto;
+		scrollbar-width: none;
+	}
+	.services-active-list .ticket-box {
+		border: 2px solid var(--yellow);
+		color: var(--yellow);
+	}
+	.services-active-list .place-box-blue {
+		background-color: var(--yellow);
+		color: var(--blue);
+	}
+	/* Flash */
+	/* .services-active-list .service-row.flash .ticket-box, */
+	.services-active-list .service-row.flash .place-box-blue {
+		animation: flashAnimation 1s ease-out 10;
+	}
+	.services-active-list .service-row.flash .ticket-box {
+		background-color: var(--yellow);
+		color: var(--blue);
+		/* animation: flashAnimation 1s ease-out 10; */
+
+	}
+	/* REMOVE on prod | for delay */
+	/* .services-active-list .service-row.flash:nth-child(even) .ticket-box, */
+	.services-active-list .service-row.flash:nth-child(even) .place-box-blue {
+		animation: flashAnimation 1s ease-out 10 0.29s;
+	}
+
+	.services-waiting-list {
+		height: 100%;
+		overflow-y: auto;
+		scrollbar-width: none;
+	}
+	.services-waiting-list .service-row {
+		border-color: var(--blue);
 	}
 
 	.service-row {
@@ -551,8 +586,8 @@
 	}
 
 	.ticket-box {
-		border: 2px solid var(--yellow);
-		color: var(--yellow);
+		border: 2px solid var(--blue);
+		color: var(--blue);
 		font-weight: bold;
 		font-size: 2vw;
 		padding: 0.5vh 1vw;
@@ -561,19 +596,19 @@
 	}
 
 	.place-box-blue {
-		background-color: var(--yellow);
-		color: var(--blue);
+		background-color: var(--blue);
+		color: var(--yellow);
 		font-weight: bold;
 		font-size: 2vw;
 		width: 4vw;
-		height: 4vw; /* Square */
+		height: 4vw;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
 	/* 3. Footer */
-	footer {
+	/* footer {
 		background-color: var(--blue);
 		border-top: 0.3vh solid var(--white-1);
 		display: flex;
@@ -614,7 +649,23 @@
 		display: flex;
 		align-items: center;
 		margin-left: 0.5vw;
+	} */
+
+	/* Flash Animation */
+	@keyframes flashAnimation {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		20%,
+		30% {
+			opacity: 0.1;
+		}
+		40% {
+			opacity: 1;
+		}
 	}
+	/* Flash Animation */
 
 	@media screen and (width < 560px) {
 		main {
