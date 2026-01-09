@@ -1,8 +1,8 @@
 {
   "workbench.colorCustomizations": {
     // Top bar (title bar) when active
-    "titleBar.activeBackground": "#81b25e",       // Example: Dark blue
-    "titleBar.activeForeground": "#11111D",       // Text/icon color for contrast
+    "titleBar.activeBackground": "#f7fcf3",       // Example: Dark blue
+    "titleBar.activeForeground": "#0f0f12",       // Text/icon color for contrast
 
     // Top bar when inactive (not focused)
     "titleBar.inactiveBackground": "#81b25e",   // Slightly transparent version

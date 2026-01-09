@@ -6,8 +6,8 @@
 	let currentTime = $state('');
 
 	// --- Mock Data ---
-	const registrationData = [
-		{ id: 'A-001', place: '1', active: true },
+	const deskQue = [
+		{ id: 'A-001', place: '1', active: true, flash: true },
 		{ id: 'A-015', place: '2', active: true },
 		{ id: 'A-005', place: '4', active: true },
 		{ id: 'A-006', place: '3', active: true },
@@ -29,8 +29,8 @@
 		{ id: 'A-001', place: '', active: false }
 	];
 
-	let activeDesks = $derived(registrationData.filter((item) => item.active));
-	let inactiveDesks = $derived(registrationData.filter((item) => !item.active));
+	let activeDesks = $derived(deskQue.filter((item) => item.active));
+	let inactiveDesks = $derived(deskQue.filter((item) => !item.active));
 
 	// References
 	let inactiveUl = $state(null);
@@ -215,7 +215,7 @@
 					<!-- Active desks: height based on content, no scroll -->
 					<ul class="desk active">
 						{#each activeDesks as item}
-							<li class="list-item active">
+							<li class="list-item active" class:flash={item.flash}>
 								<span class="ticket-id">{item.id}</span>
 								<span class="arrow">➜</span>
 								<span class="place-box">{item.place}</span>
@@ -235,13 +235,16 @@
 			</aside>
 
 			<section>
-				<div class="panel-header text-blue">სერვისები</div>
+				<div class="panel-header text-blue">სერვისები / Services</div>
 
 				<div class="services-wrapper">
-					<div class="service-col">
+					<div class="service-col active">
+						<div class="table-header subtitle">
+							<h3>აქტიური / Active</h3>
+						</div>
 						<div class="table-header text-blue">
 							<span>რიგის №</span>
-							<span>ადგილი</span>
+							<span>ოთახი / Room</span>
 						</div>
 						{#each servicesCol1 as item}
 							<div class="service-row">
@@ -251,10 +254,13 @@
 						{/each}
 					</div>
 
-					<div class="service-col">
+					<div class="service-col waiting">
+						<div class="table-header subtitle">
+							<h3>მომლოდინე / Waiting</h3>
+						</div>
 						<div class="table-header text-blue">
 							<span>რიგის №</span>
-							<span>ადგილი</span>
+							<span>ოთახი / Room</span>
 						</div>
 						{#each servicesCol2 as item}
 							<div class="service-row">
@@ -326,7 +332,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 1vh 1vw;
-		border-bottom: 0.2vh solid var(--white-1);
+		border-bottom: 0.2vh solid var(--blue);
 	}
 
 	.brand {
@@ -373,19 +379,20 @@
 
 	/* --- Left Panel (Registration) --- */
 	aside {
-		background-color: var(--blue);
+		background-color: var(--yellow);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		width: 30vw;
+		border-right: 0.2vh solid var(--blue);
 	}
 
 	.panel-header {
 		text-align: center;
 		font-size: 2vw;
-		font-weight: bold;
+		font-weight: 900;
 		padding: 1.5vh 0;
-		color: var(--white-1);
+		color: var(--blue);
 	}
 	.panel-header.text-blue {
 		color: var(--blue);
@@ -398,9 +405,9 @@
 		padding: 1vh 1vw;
 		font-size: 1.2vw;
 		font-weight: bold;
-		color: var(--white-1);
-		border-top: 2px solid var(--white-2);
-		border-bottom: 2px solid var(--white-2);
+		color: var(--blue);
+		border-top: 2px solid var(--blue);
+		border-bottom: 2px solid var(--blue);
 	}
 	.table-header.text-blue {
 		color: var(--blue);
@@ -413,7 +420,7 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
-		background-color: var(--blue);
+		background-color: var(--yellow);
 	}
 
 	ul.desk {
@@ -425,6 +432,8 @@
 	}
 
 	ul.desk.active {
+		padding-top: 1.5vh;
+		padding-bottom: 1.5vh;
 		flex: none;
 		background-color: var(--blue);
 	}
@@ -440,14 +449,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1vh 1vw;
+		padding: 1vh 2vw;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		font-size: 2.2vw;
-		font-weight: 400;
-		color: var(--white-1);
+		font-weight: 600;
+		color: var(--blue);
 	}
 
-	/* Active Item Styling (Yellow) */
+	/* Active Deks Item */
 	.list-item.active {
 		background-color: var(--blue);
 		margin: 0.5vh 1vw;
@@ -458,6 +467,26 @@
 		font-weight: 700;
 	}
 
+	/* Flash Animation: Active Desk item */
+	.list-item.active.flash > span {
+		animation: flashDesk 1s ease-out 10;
+	}
+
+	@keyframes flashDesk {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		20%,
+		30% {
+			opacity: 0.1;
+		}
+		40% {
+			opacity: 1;
+		}
+	}
+	/* Flash Animation: Active Desk item */
+
 	.list-item.active .place-box {
 		background-color: var(--blue);
 		color: var(--yellow);
@@ -467,7 +496,7 @@
 	}
 
 	.arrow {
-		color: var(--blue); /* Or yellow for inactive */
+		color: var(--blue);
 		font-size: 1.5vw;
 	}
 
@@ -488,10 +517,26 @@
 		height: 100%;
 	}
 
+	.service-col .table-header {
+		background-color: var(--white-1);
+	}
+
+	.service-col .table-header.subtitle {
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.service-col {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow-y: auto
+	}
+	.service-col.active {
+		border-left: 2px solid var(--yellow) !important;
+		background-color: var(--blue);
 	}
 	.service-col:first-child {
 		border-right: 2px solid var(--blue);
@@ -502,12 +547,12 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 0.8vh 1vw;
-		border-bottom: 2px solid var(--blue);
+		border-bottom: 2px solid var(--yellow);
 	}
 
 	.ticket-box {
-		border: 2px solid var(--blue);
-		color: var(--blue);
+		border: 2px solid var(--yellow);
+		color: var(--yellow);
 		font-weight: bold;
 		font-size: 2vw;
 		padding: 0.5vh 1vw;
@@ -516,8 +561,8 @@
 	}
 
 	.place-box-blue {
-		background-color: var(--blue);
-		color: var(--white-1);
+		background-color: var(--yellow);
+		color: var(--blue);
 		font-weight: bold;
 		font-size: 2vw;
 		width: 4vw;
@@ -571,21 +616,20 @@
 		margin-left: 0.5vw;
 	}
 
-  @media screen and (width < 560px) {
-    main {
-      flex-direction: column;
-      font-size: 20px !important;
-    }
-    main * {
-      font-size: 15px !important;
-    }
-    aside {
-      width: 100%;
-      height: 40vh;
-    }
-    section {
-      width: 100%;
-    }
-  }
-
+	@media screen and (width < 560px) {
+		main {
+			flex-direction: column;
+			font-size: 20px !important;
+		}
+		main * {
+			font-size: 15px !important;
+		}
+		aside {
+			width: 100%;
+			height: 40vh;
+		}
+		section {
+			width: 100%;
+		}
+	}
 </style>
