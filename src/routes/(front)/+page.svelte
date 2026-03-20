@@ -63,15 +63,15 @@
 	}
 	a:hover {
 		transform: translateY(-5px);
-		background: var(--primary);
-		color: var(--black);
+		background: rgba(var(--primary-rgb), 0.29);
+		color: var(--primary);
 		border-top-right-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 	a:active {
 		transform: translateY(0);
-		color: var(--primary);
-		background: rgba(var(--primary-rgb), 0.29);
+		color: var(--black);
+		background: var(--primary);
 	}
 	@media all and (max-width: 550px) {
 		h1 {

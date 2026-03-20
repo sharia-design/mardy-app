@@ -22,6 +22,10 @@ export default [
 	},
 	{
 		files: ['**/*.svelte', '**/*.svelte.js'],
-		languageOptions: { parserOptions: { svelteConfig } }
+		languageOptions: { parserOptions: { svelteConfig } },
+		rules: {
+			'svelte/require-each-key': 'off'
+		}
+
 	}
 ];
