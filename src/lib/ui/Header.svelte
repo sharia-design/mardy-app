@@ -17,7 +17,8 @@
 			variant: 'default',
 			links: [
 				{ label: 'უსაფრთხოება და დაცულობა', href: '#' },
-				{ label: 'დოკუმენტაცია', href: '/docs' },
+				{ label: 'დოკუმენტაცია', href: '/docs/pdf' },
+				{ label: 'FAQ', href: '/faq' },
 				{ label: 'პარტნიორები', href: '#' }
 			]
 		},

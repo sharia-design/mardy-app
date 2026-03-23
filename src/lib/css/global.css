@@ -59,3 +59,18 @@
 			"GRAD"0;
 		color: var(--primary);
 	}
+
+	button {
+		font-family: "Google Sans", sans-serif;
+	}
+
+	/* ---------------------- FAQ --------------------- */
+	
+	.faq-answer p {
+		margin: 0.75rem 0 0;
+	}
+
+	.faq-answer p:last-child {
+		margin-bottom: 0;
+	}
+	/* ---------------------- FAQ --------------------- */
