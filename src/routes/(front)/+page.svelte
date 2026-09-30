@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fly, scale, blur } from 'svelte/transition';
+	import Header from '$lib/ui/Header.svelte';
+
 	import Logo from '$lib/img/Logo.svelte';
 
 	let anim = $state(false);
@@ -10,12 +12,18 @@
 	});
 </script>
 
+<Header />
 <div class="mardy">
 	{#if anim}
 		<div class="logo" in:blur={{ amount: 11, duration: 1111, delay: 111 }}>
 			<Logo />
 		</div>
 		<h1 in:blur={{ amount: 11, duration: 1200, delay: 420 }}>რიგის მართვის სისტემა</h1>
+		<nav>
+			<a href="/tv" target="_self"><strong>TV</strong> </a>
+			<a href="/docs/pdf" target="_self">Admin CRM [Doc]</a>
+			<a href="/docs/pdf" target="_self">Admin CRM [Doc]</a>
+		</nav>
 		<ul>
 			<li in:fly={{ y: 40, duration: 650, delay: 1111 }}>
 				<a href="mailto:email@mardy.app">email@mardy.app</a>

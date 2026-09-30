@@ -365,7 +365,7 @@
 		<div
 			data-slot="grid"
 			class={cn(
-				"grid max-h-[65vh] grid-cols-1 gap-4 overflow-y-auto overscroll-contain p-4 md:max-h-none md:grid-cols-3 md:overflow-visible",
+				"grid max-h-[65vh] grid-cols-1 gap-4 overflow-y-auto overscroll-contain p-4 md:max-h-none md:grid-cols-3 md:overflow-visible p-12",
 				classes?.grid,
 			)}
 		>

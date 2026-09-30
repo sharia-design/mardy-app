@@ -1,4 +1,8 @@
 <script>
+	import { navigation } from '$lib/docs/config/navigation.js';
+	import { page } from '$app/stores';
+	import '$lib/css/docs.css';
+
 	import favicon from '$lib/favicon/favicon.svg';
 	import '$lib/css/global.css';
 
@@ -33,4 +37,8 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+
+	<!-- Main content -->
+	<main>
+		{@render children()}
+	</main>

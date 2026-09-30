@@ -7,9 +7,19 @@
 			title: 'პროდუქტი',
 			variant: 'muted',
 			links: [
-				{ label: 'მიმოხილვა', href: '#' },
-				{ label: 'შედარება', href: '#' },
-				{ label: 'ფასი', href: '#' }
+				{ label: 'ტელევიზორი (TV)', href: '/tv' },
+				{ label: 'ჩეკი / ქვითარი (Kiosk)', href: '/kiosk' },
+				{ label: 'ადმინი (CRM)', href: '/docs/pdf' }
+			]
+		},
+		{
+			title: 'ინდუსტრია',
+			variant: 'muted',
+			links: [
+				{ label: 'ჯანდაცვა / ჰოსპიტალი', href: '/tv/healthcare' },
+				{ label: 'კურიერი (Delivery)', href: '/tv/healthcare' },
+				{ label: '(Fast Food)', href: '/tv/healthcare' },
+				{ label: '(Restourant)', href: '/tv/healthcare' }
 			]
 		},
 		{
@@ -30,7 +40,7 @@
 				{ label: 'ბლოგი', href: '#' },
 				{ label: 'კარიერა', href: '#' }
 			]
-		}
+		},
 	];
 	let demoContainer;
 </script>
@@ -38,7 +48,7 @@
 <FloatingMenu
 	portalTarget={demoContainer}
 	{menuGroups}
-	primaryButton={{ label: 'Docs | PDF', href: '/docs/pdf' }}
+	primaryButton={{ label: 'Contact', href: 'mailto:email@mardy.app' }}
 >
 	{#snippet logo()}
 		<a href="/" data-sveltekit-reload class="flex items-center">
